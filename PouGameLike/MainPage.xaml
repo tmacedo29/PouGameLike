@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PouGameLike.MainPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="False"
+             Shell.NavBarIsVisible="false"
+             BackgroundColor="LightBlue">
+  <Grid IgnoreSafeArea="True">
+    <!--...........................................................................................................
+        Background Image
+    -->
+    <Image Source="fundo.png"
+           Aspect="AspectFill"/>
+
+    <!--...........................................................................................................
+        Current Pet
+    -->
+    <Image x:Name="imgCharacter"
+           Source="capybara.png"
+           HeightRequest="400"
+           Margin="0"
+           Aspect="AspectFill"
+           VerticalOptions="End"/>
+
+    <!--...........................................................................................................
+        Sadness, Thursty and Hungry status bars
+    -->
+    <Grid Margin="20, 50, 20, 0"
+          ColumnSpacing="10"
+          RowSpacing="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="30"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+        <Image Source="ball.png"
+               HeightRequest="30"
+               Aspect="AspectFit"
+               Grid.Row="0"
+               Grid.Column="0"/>
+        <ProgressBar x:Name="progressBarSadness"
+                     Progress="1"
+                     BackgroundColor="White"
+                     ProgressColor="Green"
+                     Grid.Row="0"
+                     Grid.Column="1"/>
+      
+        <Image Source="food.png"
+               HeightRequest="50"
+               Aspect="AspectFit"
+               Grid.Row="1"
+               Grid.Column="0"/>
+        <ProgressBar x:Name="progressBarHungry"
+                     Progress="1"
+                     HeightRequest="10"
+                     ProgressColor="Brown"
+                     Grid.Row="1"
+                     Grid.Column="1"/>
+
+        <Image Source="water.png"
+               HeightRequest="50"
+               Aspect="AspectFit"
+               Grid.Row="2"
+               Grid.Column="0"/>
+        <ProgressBar x:Name="progressBarThursty"
+                     Progress="1"
+                     HeightRequest="10"
+                     ProgressColor="Blue"
+                     Grid.Row="2"
+                     Grid.Column="1"/>
+
+    </Grid>
+    <!--.........................................................................................................-->
+
+    <!--...........................................................................................................
+        Buttons
+    -->
+    <Frame BackgroundColor="#a6cd89"
+           BorderColor="Black"
+           WidthRequest="70"
+           Padding="5, 20"
+           Margin="0,-40,5,0"
+           VerticalOptions="Center"
+           HorizontalOptions="End"
+           CornerRadius="30">
+      <Grid RowSpacing="20">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <ImageButton Source="arrow.png"
+                     Clicked="OnChangeCharacterClicked"
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     CornerRadius="25"
+                     Grid.Row="0"/>
+
+        <ImageButton Source="ball.png"
+                     Clicked="OnPlayClicked"
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     CornerRadius="25"
+                     Grid.Row="1"/>
+
+        <ImageButton Source="food.png"
+                     Clicked="OnFoodClicked"
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     CornerRadius="25"
+                     Grid.Row="2"/>
+
+        <ImageButton Source="water.png"
+                     Clicked="OnDrinkClicked"
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     CornerRadius="25"
+                     Grid.Row="3"/>
+
+      </Grid>  
+    </Frame>
+
+  </Grid>
+
+
+</ContentPage>
