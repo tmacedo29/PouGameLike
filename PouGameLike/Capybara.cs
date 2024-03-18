@@ -43,4 +43,18 @@ public class Capybara : Character
 
   //---------------------------------------------------------------------------------------------------------------------------
 
+  public override void TimePassed()
+  {
+    var currentSadnessLevel = GetSadnessLevel();
+    SetSadnessLevel(currentSadnessLevel - .04);
+
+    var currentThurstyLevel = GetThurstyLevel();
+    SetThurstyLevel(currentThurstyLevel - .005);
+
+    var currentHundgryLevel = GetHungryLevel();
+    SetHungryLevel(currentHundgryLevel - .02);
+  }
+
+  //---------------------------------------------------------------------------------------------------------------------------
+
 }

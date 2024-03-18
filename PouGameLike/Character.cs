@@ -107,4 +107,18 @@ public class Character
   }
 
   //---------------------------------------------------------------------------------------------------------------------------
+
+  public virtual void TimePassed()
+  {
+    var currentSadnessLevel = GetSadnessLevel();
+    SetSadnessLevel(currentSadnessLevel - .01);
+
+    var currentThurstyLevel = GetThurstyLevel();
+    SetThurstyLevel(currentThurstyLevel - .01);
+
+    var currentHundgryLevel = GetHungryLevel();
+    SetHungryLevel(currentHundgryLevel - .01);
+  }
+
+  //---------------------------------------------------------------------------------------------------------------------------
 }

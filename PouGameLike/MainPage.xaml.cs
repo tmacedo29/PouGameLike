@@ -19,6 +19,11 @@ public partial class MainPage : ContentPage
     CharacterList.Add(new Pou());
 
     Init();
+
+    var timer = Application.Current.Dispatcher.CreateTimer();
+    timer.Interval = TimeSpan.FromSeconds(1);
+    timer.Tick += (s,e) => TimePassed();
+    timer.Start();
 	}
 
   //--------------------------------------------------------------------------------------------------
@@ -37,6 +42,15 @@ public partial class MainPage : ContentPage
     progressBarSadness.Progress = CurrentCharacter.GetSadnessLevel();
     progressBarHungry.Progress  = CurrentCharacter.GetHungryLevel();
     progressBarThursty.Progress = CurrentCharacter.GetThurstyLevel();
+  }
+
+  //--------------------------------------------------------------------------------------------------
+
+  void TimePassed()
+  {
+    foreach(var character in CharacterList)
+      character.TimePassed();
+    PageConfigure();
   }
 
   //--------------------------------------------------------------------------------------------------

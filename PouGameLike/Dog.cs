@@ -22,7 +22,7 @@ public class Dog : Character
   public override void Eat()
   {
     var currentHundgryLevel = GetHungryLevel();
-    SetHungryLevel(currentHundgryLevel + 0.01);
+    SetHungryLevel(currentHundgryLevel + 0.05);
   }
 
   //---------------------------------------------------------------------------------------------------------------------------
@@ -39,6 +39,20 @@ public class Dog : Character
   {
     var currentSadnessLevel = GetSadnessLevel();
     SetSadnessLevel(currentSadnessLevel + 0.1);
+  }
+
+  //---------------------------------------------------------------------------------------------------------------------------
+
+  public override void TimePassed()
+  {
+    var currentSadnessLevel = GetSadnessLevel();
+    SetSadnessLevel(currentSadnessLevel - .01);
+
+    var currentThurstyLevel = GetThurstyLevel();
+    SetThurstyLevel(currentThurstyLevel - .02);
+
+    var currentHundgryLevel = GetHungryLevel();
+    SetHungryLevel(currentHundgryLevel - .05);
   }
 
   //---------------------------------------------------------------------------------------------------------------------------
